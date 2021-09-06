@@ -224,8 +224,10 @@ class CardanocliJs {
       const value = {};
       valueList.forEach((v) => {
         let [quantity, asset] = v.trim().split(" ");
-        quantity = parseInt(quantity);
-        value[asset] = quantity;
+        if (asset != null) {
+          quantity = parseInt(quantity);
+          value[asset] = quantity;
+        }
       });
       return {
         txHash,
